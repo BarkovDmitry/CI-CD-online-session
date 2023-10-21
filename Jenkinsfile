@@ -87,7 +87,7 @@ pipeline {
 
     stage('Deploy') {
       steps{
-        sh 'docker stop flask-app || true; docker rm flask-app || true; docker run -d --name flask-app -p 9000:9000 vpanton/flask-app:latest'
+        sh 'docker stop jenkins-ci-cd || true; docker rm jenkins-ci-cd || true; docker run -d --name jenkins-ci-cd -p 9000:9000 dbarkov/jenkins-ci-cd:latest'
       }
     }
 
