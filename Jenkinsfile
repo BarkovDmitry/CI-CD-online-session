@@ -11,6 +11,14 @@ pipeline {
       }
     }
 
+    stage('unit-test') {
+      steps {
+        script {
+          docker.image(${registry}:latest).inside{ c-> sh 'python app_test.py'}
+        } 
+      }
+    }  
+
     stage('Publish') {
       steps {
         script {
@@ -18,11 +26,10 @@ pipeline {
             docker.image("${registry}:latest").push('latest')
           }
         }
-
       }
     }
-
   }
+
   environment {
     registry = 'dbarkov/jenkins-ci-cd'
   }
