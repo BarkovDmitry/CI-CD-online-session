@@ -1,4 +1,4 @@
-FROM python:latest 
+FROM python 
 # Set application working directory 
 WORKDIR /usr/src/app 
 # Install requirements 
